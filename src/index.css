@@ -75,6 +75,18 @@ a {
   }
 }
 
+@keyframes cardSpin {
+  0% {
+    transform: rotateX(35deg) rotateY(0deg) translateY(0px);
+  }
+  50% {
+    transform: rotateX(35deg) rotateY(180deg) translateY(-10px);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(360deg) translateY(0px);
+  }
+}
+
 @keyframes nfcPulse {
   0% {
     transform: scale(0.6);

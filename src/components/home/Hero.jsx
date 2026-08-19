@@ -47,7 +47,7 @@ export function Hero() {
 
         <div className="order-1 lg:order-2">
           <Reveal delay={0.1} className="[perspective:1200px]">
-            <Product3DCard size="lg" />
+            <Product3DCard size="lg" spin />
           </Reveal>
         </div>
       </div>

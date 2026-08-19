@@ -4,11 +4,11 @@ import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
 // Digital stand-in for the physical Book Now NFC Card (86.4mm x 54mm, ~1mm thick).
 // No card artwork exists yet — this renders a proportionally-correct CSS card with a
 // placeholder face so real front/back photography can drop in later (see the comment below).
-export function Product3DCard({ size = 'lg' }) {
+export function Product3DCard({ size = 'lg', spin = false }) {
   const wrapperRef = useRef(null)
   const cardRef = useRef(null)
   const reducedMotion = usePrefersReducedMotion()
-  const dragState = useRef({ dragging: false, startX: 0, rotY: -10 })
+  const dragState = useRef({ dragging: false, startX: 0, rotY: spin ? 0 : -10 })
 
   useEffect(() => {
     if (reducedMotion) return
@@ -27,7 +27,9 @@ export function Product3DCard({ size = 'lg' }) {
       const y = (e.clientY - rect.top) / rect.height - 0.5
       if (raf) cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
-        card.style.transform = `rotateX(${(-y * 14 + 6).toFixed(2)}deg) rotateY(${(x * 18 - 10).toFixed(2)}deg) translateY(-4px)`
+        card.style.transform = spin
+          ? `rotateX(35deg) rotateY(${(x * 40).toFixed(2)}deg) translateY(-4px)`
+          : `rotateX(${(-y * 14 + 6).toFixed(2)}deg) rotateY(${(x * 18 - 10).toFixed(2)}deg) translateY(-4px)`
       })
     }
 
@@ -64,7 +66,7 @@ export function Product3DCard({ size = 'lg' }) {
       if (!dragState.current.dragging) return
       const delta = e.touches[0].clientX - dragState.current.startX
       const rotY = dragState.current.rotY + delta / 6
-      card.style.transform = `rotateX(6deg) rotateY(${rotY}deg)`
+      card.style.transform = spin ? `rotateX(35deg) rotateY(${rotY}deg)` : `rotateX(6deg) rotateY(${rotY}deg)`
     }
     function handleTouchEnd(e) {
       if (!dragState.current.dragging) return
@@ -100,9 +102,13 @@ export function Product3DCard({ size = 'lg' }) {
       <div
         ref={cardRef}
         className={`relative aspect-[86.4/54] w-full rounded-[18px] bg-ink shadow-card transform-gpu [transform-style:preserve-3d] ${
-          reducedMotion ? '' : 'animate-[cardIdle_9s_ease-in-out_infinite]'
+          reducedMotion ? '' : spin ? 'animate-[cardSpin_18s_linear_infinite]' : 'animate-[cardIdle_9s_ease-in-out_infinite]'
         }`}
-        style={reducedMotion ? { transform: 'rotateX(5deg) rotateY(-10deg)' } : undefined}
+        style={
+          reducedMotion
+            ? { transform: spin ? 'rotateX(35deg) rotateY(-20deg)' : 'rotateX(5deg) rotateY(-10deg)' }
+            : undefined
+        }
       >
         {/* card thickness illusion */}
         <div className="absolute inset-0 -z-10 translate-x-1 translate-y-1.5 rounded-[18px] bg-black/70 [transform:translateZ(-4px)]" />
