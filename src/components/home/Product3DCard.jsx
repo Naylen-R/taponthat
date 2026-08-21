@@ -139,8 +139,35 @@ export function Product3DCard({ size = 'lg', spin = false }) {
         {/* card thickness illusion */}
         <div className="absolute inset-0 -z-10 translate-x-1 translate-y-1.5 rounded-[18px] bg-black/70 [transform:translateZ(-4px)]" />
 
-        {/* card face */}
-        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[18px] p-[6%]">
+        {/* card face — front. backface-visibility hidden so this disappears (rather than
+            showing mirrored) once the spin turns it away from the viewer. */}
+        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[18px] p-[6%] [backface-visibility:hidden]">
+          <div
+            className="pointer-events-none absolute inset-0 opacity-40"
+            style={{
+              background:
+                'linear-gradient(115deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(255,255,255,0.06) 100%)',
+            }}
+          />
+          <div className="flex flex-col items-start gap-1.5">
+            <NfcMark size={22} />
+            <span className="text-[clamp(7px,1.6vw,9px)] font-semibold uppercase tracking-[0.16em] text-white/60">
+              NFC Enabled
+            </span>
+          </div>
+          <div>
+            <p className="text-[clamp(20px,5.5vw,32px)] font-semibold leading-none text-white">
+              TapOnThat
+            </p>
+            <p className="mt-2 text-[clamp(9px,2vw,12px)] font-medium uppercase tracking-[0.32em] text-white/60">
+              Book Now
+            </p>
+          </div>
+        </div>
+
+        {/* card face — back. Pre-rotated 180deg so it reads right-way-round (not
+            mirrored) once the spin brings it to face the viewer. */}
+        <div className="absolute inset-0 flex flex-col justify-between overflow-hidden rounded-[18px] p-[6%] [backface-visibility:hidden] [transform:rotateY(180deg)]">
           <div
             className="pointer-events-none absolute inset-0 opacity-40"
             style={{
