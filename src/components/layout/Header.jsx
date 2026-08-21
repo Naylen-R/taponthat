@@ -28,7 +28,7 @@ export function Header() {
                 key={item.href}
                 to={item.href}
                 className={({ isActive }) =>
-                  `flex h-full items-center px-4 text-sm font-medium transition-colors hover:text-ink ${
+                  `flex h-full items-center px-6 text-sm font-medium transition-colors hover:text-ink ${
                     isActive ? 'text-ink' : 'text-muted'
                   }`
                 }
