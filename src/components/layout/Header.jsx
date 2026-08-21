@@ -22,13 +22,13 @@ export function Header() {
         <div className="mx-auto flex h-16 w-full max-w-content items-center justify-between px-6 sm:px-8 lg:px-10">
           <Logo />
 
-          <nav className="hidden md:flex items-center gap-8" aria-label="Primary">
+          <nav className="hidden md:flex h-full items-stretch" aria-label="Primary">
             {siteConfig.nav.map((item) => (
               <NavLink
                 key={item.href}
                 to={item.href}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors hover:text-ink ${
+                  `flex h-full items-center px-4 text-sm font-medium transition-colors hover:text-ink ${
                     isActive ? 'text-ink' : 'text-muted'
                   }`
                 }
