@@ -38,6 +38,8 @@ export default {
       boxShadow: {
         soft: '0 2px 8px rgba(10,10,10,0.04), 0 8px 24px rgba(10,10,10,0.04)',
         card: '0 12px 40px rgba(10,10,10,0.10)',
+        charcoal: '0 2px 6px rgba(54,58,64,0.10), 0 10px 28px rgba(54,58,64,0.16)',
+        'charcoal-lg': '0 4px 10px rgba(54,58,64,0.14), 0 16px 36px rgba(54,58,64,0.22)',
       },
       keyframes: {
         float: {
