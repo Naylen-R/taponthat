@@ -18,6 +18,17 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Restore the real path if we arrived here via the 404.html SPA redirect
+      // (see public/404.html) before React Router mounts.
+      (function () {
+        var params = new URLSearchParams(location.search);
+        var redirect = params.get('redirect');
+        if (redirect) {
+          history.replaceState(null, '', location.pathname.replace(/\/$/, '') + redirect);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

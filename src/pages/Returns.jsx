@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { LegalPageLayout } from '../components/ui/LegalPageLayout'
 import { usePageMeta } from '../hooks/usePageMeta'
 
@@ -16,7 +17,7 @@ export default function Returns() {
         handled case by case once production has started.
       </p>
       <p>
-        To start a return, <a href="/contact" className="font-medium text-ink underline">contact us</a> with your order details.
+        To start a return, <Link to="/contact" className="font-medium text-ink underline">contact us</Link> with your order details.
       </p>
     </LegalPageLayout>
   )

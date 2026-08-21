@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>TapOnThat</title>
+    <script>
+      // GitHub Pages has no server-side rewrites, so a direct load or refresh on a
+      // client-side route (e.g. /shop, /menu/:slug) hits this 404 page. Redirect
+      // to index.html with the intended path encoded in a query param; the inline
+      // script in index.html restores it via history.replaceState before React
+      // mounts. See https://github.com/rafgraph/spa-github-pages
+      var basePath = '/taponthat';
+      var path = location.pathname.slice(basePath.length) + location.search + location.hash;
+      location.replace(basePath + '/?redirect=' + encodeURIComponent(path));
+    </script>
+  </head>
+  <body></body>
+</html>

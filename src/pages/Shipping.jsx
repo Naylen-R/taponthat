@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { LegalPageLayout } from '../components/ui/LegalPageLayout'
 import { usePageMeta } from '../hooks/usePageMeta'
 
@@ -14,10 +15,10 @@ export default function Shipping() {
       </p>
       <p>
         For custom orders, delivery timing depends on production and is confirmed as part of
-        your quote — see <a href="/custom-orders" className="font-medium text-ink underline">Custom Orders</a>.
+        your quote — see <Link to="/custom-orders" className="font-medium text-ink underline">Custom Orders</Link>.
       </p>
       <p>
-        Questions about an order? <a href="/contact" className="font-medium text-ink underline">Contact us</a>.
+        Questions about an order? <Link to="/contact" className="font-medium text-ink underline">Contact us</Link>.
       </p>
     </LegalPageLayout>
   )
