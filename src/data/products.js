@@ -48,45 +48,6 @@ export const products = [
     ],
   },
   {
-    id: 'connect-nfc-card',
-    slug: 'connect-nfc-card',
-    name: 'TapOnThat Connect Card',
-    tagline: 'Connect with a tap.',
-    shortDescription: 'Share your website, contact info or profile — instantly, with one tap.',
-    price: 34.99, // PLACEHOLDER
-    currency: 'CAD',
-    color: 'White',
-    image: asset('/images/products/taponthat-connect-card-front.webp'),
-    images: [
-      { src: asset('/images/products/taponthat-connect-card-front.webp'), alt: 'TapOnThat Connect Card — front' },
-      { src: asset('/images/products/taponthat-connect-card-back.webp'), alt: 'TapOnThat Connect Card — back' },
-    ],
-    benefits: [
-      'NFC enabled — works with compatible smartphones',
-      'No app required for the person tapping',
-      'Reusable — reprogram the destination anytime',
-      'Ships within Canada',
-    ],
-    faqs: [
-      {
-        q: 'What does this card open?',
-        a: 'Your Connect Card can be programmed to open your website, a contact card, a social profile, or any destination you choose.',
-      },
-      {
-        q: 'Do I need an app to use it?',
-        a: 'No. The person tapping just needs a compatible smartphone — nothing to install.',
-      },
-      {
-        q: 'Can I change where it points later?',
-        a: 'Yes — the card is reprogrammable, so your destination can be updated anytime.',
-      },
-      {
-        q: 'Where do you ship?',
-        a: 'We currently ship across Canada only.',
-      },
-    ],
-  },
-  {
     id: 'menu-stand',
     slug: 'menu-stand',
     name: 'TapOnThat Menu Stand',
