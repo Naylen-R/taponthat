@@ -1,6 +1,12 @@
 // PLACEHOLDER PRICING — no store/payment backend is connected yet.
 // Replace `price` with the real CAD price before launch. Nothing here is fabricated
 // as "real" data; it exists so the UI/cart/checkout flow can be built and wired up later.
+
+// Product images live in public/, so they aren't processed by Vite's asset
+// pipeline — prefix with BASE_URL so they still resolve under a non-root
+// deploy base (e.g. GitHub Pages' /taponthat/).
+const asset = (path) => import.meta.env.BASE_URL + path.replace(/^\//, '')
+
 export const products = [
   {
     id: 'book-now-nfc-card',
@@ -11,10 +17,10 @@ export const products = [
     price: 39.99, // PLACEHOLDER
     currency: 'CAD',
     color: 'Black',
-    image: '/images/products/booknow-nfc-card-front.webp',
+    image: asset('/images/products/booknow-nfc-card-front.webp'),
     images: [
-      { src: '/images/products/booknow-nfc-card-front.webp', alt: 'Book Now NFC Card — front' },
-      { src: '/images/products/booknow-nfc-card-back.webp', alt: 'Book Now NFC Card — back' },
+      { src: asset('/images/products/booknow-nfc-card-front.webp'), alt: 'Book Now NFC Card — front' },
+      { src: asset('/images/products/booknow-nfc-card-back.webp'), alt: 'Book Now NFC Card — back' },
     ],
     benefits: [
       'NFC enabled — works with compatible smartphones',
@@ -50,10 +56,10 @@ export const products = [
     price: 34.99, // PLACEHOLDER
     currency: 'CAD',
     color: 'White',
-    image: '/images/products/taponthat-connect-card-front.webp',
+    image: asset('/images/products/taponthat-connect-card-front.webp'),
     images: [
-      { src: '/images/products/taponthat-connect-card-front.webp', alt: 'TapOnThat Connect Card — front' },
-      { src: '/images/products/taponthat-connect-card-back.webp', alt: 'TapOnThat Connect Card — back' },
+      { src: asset('/images/products/taponthat-connect-card-front.webp'), alt: 'TapOnThat Connect Card — front' },
+      { src: asset('/images/products/taponthat-connect-card-back.webp'), alt: 'TapOnThat Connect Card — back' },
     ],
     benefits: [
       'NFC enabled — works with compatible smartphones',
@@ -89,8 +95,8 @@ export const products = [
     price: 24.99, // PLACEHOLDER
     currency: 'CAD',
     color: 'White',
-    image: '/images/products/menu-stand-front.webp',
-    images: [{ src: '/images/products/menu-stand-front.webp', alt: 'TapOnThat Menu Stand — printed face' }],
+    image: asset('/images/products/menu-stand-front.webp'),
+    images: [{ src: asset('/images/products/menu-stand-front.webp'), alt: 'TapOnThat Menu Stand — printed face' }],
     benefits: [
       'NFC enabled — customers tap to open your menu instantly',
       'No app or QR code required',
